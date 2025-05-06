@@ -1,0 +1,11 @@
+<h1>Registre des interventions du SPI</h1>
+
+{% for i in interventions %}
+{{i.id}}, {{i.adresse}}
+    {% for r in i.repartitions %}
+    {{r.horodateur|date('Y-m-d H:i')}} : {{r.vehicule.metricule}}, {{r.vehicule.description}} <br>
+    {% endfor %}
+    <hr>
+{% endfor %}
+
+<a href="{{path('menu')}}">Retour</a>

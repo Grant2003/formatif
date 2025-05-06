@@ -1,0 +1,12 @@
+<h1>Historique des véhicules</h1>
+
+{% for v in vehicules %}
+
+{{v.metricule}}, {{v.description}} <br>
+    {% for r in v.repartitions %}
+       {{r.horodateur|date('Y-m-d H:i')}} : {{r.intervention.adresse}}, {{r.intervention.type}} <br>
+    {% endfor %}
+    <hr>
+{% endfor %}
+
+<a href="{{path('menu')}}">Retour</a>
